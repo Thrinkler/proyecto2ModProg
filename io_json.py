@@ -1,7 +1,8 @@
 import json
+
 import datetime
 
-def getFromJSON(): #Regresa un diccionario de todos los archivos dentro de las tareas.
+def loadJSON() -> dict: #Regresa un diccionario de todos los archivos dentro de las tareas.
     data = {}
     with open("tarea.json", "r", encoding="UTF-8") as f:
         content = f.read().strip()
@@ -9,8 +10,15 @@ def getFromJSON(): #Regresa un diccionario de todos los archivos dentro de las t
             data = json.loads(content)
     return data
 
+def getFromJSON(): #Regresa una lista con todos los diccionarios dentro de las tareas.
+    data = loadJSON()
+    return [
+        {"id": int(task_id), **task}
+        for task_id, task in data.items()
+    ]
+
 def addToJSON(dicAdded): #Añade el diccionario obtenido a la lista.
-    data = getFromJSON()
+    data = loadJSON()
     
     idval = 0 if not data else int(next(reversed(data.keys()))) + 1
     data[idval] = dicAdded
@@ -22,8 +30,10 @@ def addToJSON(dicAdded): #Añade el diccionario obtenido a la lista.
 
 def findFromJSON(substr): # Regresa una lista con los diccionarios que coinciden con el substring
     data = getFromJSON()
-    resultados = []
-    for dat in data:
-        if(substr in data[dat]["titulo"] or substr in data[dat]["descripcion"]):
-            resultados.append(data[dat])
+    resultados = [
+        task 
+        for task in data
+        if substr in task["titulo"] or substr in task["descripcion"]
+    ]
+
     return resultados
