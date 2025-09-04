@@ -18,10 +18,4 @@ class Tarea:
     def saveToJson(self):
         io_json.addToJSON(self.dic())
         
-            
-tar = Tarea("tercer tarea",1,str(datetime.datetime.today().date()),"",False)
-
-tar.saveToJson()
-
-print(io_json.findFromJSON("ercer"))
 
