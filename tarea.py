@@ -13,15 +13,15 @@ class Tarea:
     def dic(self):
         return vars(self)
 
-    def fromJson(self):
-        pass
     def toJson(self):
         return json.dumps(self.returnDic(),ensure_ascii = False, indent=2)
     def saveToJson(self):
         io_json.addToJSON(dic())
         
             
-tar = Tarea("segunda tarea",1,str(datetime.datetime.today),"",False)
+tar = Tarea("tercer tarea",1,str(datetime.datetime.today().date()),"",False)
 
-io_json.addToJSON(tar.dic())
-    
+tar.saveToJson()
+
+print(io_json.findFromJSON("ercer"))
+
