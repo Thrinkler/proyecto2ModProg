@@ -1,0 +1,53 @@
+
+{
+  "id": 1,
+  "titulo": "Mi primera tarea",
+  "prioridad": 0,
+  "fecha": "2025-09-03",
+  "descripcion": "Es mi primera tarea.",
+  "completada": false
+}
+
+{
+  "id": 1,
+  "titulo": "Mi primera tarea",
+  "prioridad": 0,
+  "fecha": "2025-09-03",
+  "descripcion": "Es mi primera tarea.",
+  "completada": false
+}   {
+  "id": 1,
+  "titulo": "Mi primera tarea",
+  "prioridad": 0,
+  "fecha": "2025-09-03",
+  "descripcion": "Es mi primera tarea.",
+  "completada": false
+}{
+  "id": 1,
+  "titulo": "Mi primera tarea",
+  "prioridad": 0,
+  "fecha": "2025-09-03",
+  "descripcion": "Es mi primera tarea.",
+  "completada": false
+}{
+  "id": 5,
+  "titulo": "Mi primera tarea",
+  "prioridad": 0,
+  "fecha": "2025-09-03",
+  "descripcion": "Es mi primera tarea.",
+  "completada": false
+}{
+  "id": 5,
+  "titulo": "Mi primera tarea",
+  "prioridad": 0,
+  "fecha": "2025-09-04",
+  "descripcion": "Es mi primera tarea.",
+  "completada": false
+}{
+  "id": 5,
+  "titulo": "Mi primera tarea",
+  "prioridad": 0,
+  "fecha": "2025-09-04",
+  "descripcion": "Es mi primera tarea.",
+  "completada": false
+}
