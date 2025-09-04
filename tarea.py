@@ -1,16 +1,16 @@
 import datetime
+import io_json
 import json
 class Tarea:
 
-    def __init__(self, idval:int, titulo:str, prioridad:int, fecha:str,descripcion:str,completada:bool):
-        self.id = idval
+    def __init__(self, titulo:str, prioridad:int, fecha:str,descripcion:str,completada:bool):
         self.titulo = titulo
         self.prioridad=prioridad
         self.fecha = fecha
         self.descripcion = descripcion
         self.completada = completada
 
-    def returnDic(self):
+    def dic(self):
         return vars(self)
 
     def fromJson(self):
@@ -18,8 +18,10 @@ class Tarea:
     def toJson(self):
         return json.dumps(self.returnDic(),ensure_ascii = False, indent=2)
     def saveToJson(self):
-        with open("tarea.json", "a",encoding="UTF-8") as f:
-            f.write(self.toJson())
+        io_json.addToJSON(dic())
+        
             
+tar = Tarea("segunda tarea",1,str(datetime.datetime.today),"",False)
 
+io_json.addToJSON(tar.dic())
     

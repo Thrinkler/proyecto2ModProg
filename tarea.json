@@ -1,53 +1,37 @@
-
 {
-  "id": 1,
-  "titulo": "Mi primera tarea",
-  "prioridad": 0,
-  "fecha": "2025-09-03",
-  "descripcion": "Es mi primera tarea.",
-  "completada": false
-}
-
-{
-  "id": 1,
-  "titulo": "Mi primera tarea",
-  "prioridad": 0,
-  "fecha": "2025-09-03",
-  "descripcion": "Es mi primera tarea.",
-  "completada": false
-}   {
-  "id": 1,
-  "titulo": "Mi primera tarea",
-  "prioridad": 0,
-  "fecha": "2025-09-03",
-  "descripcion": "Es mi primera tarea.",
-  "completada": false
-}{
-  "id": 1,
-  "titulo": "Mi primera tarea",
-  "prioridad": 0,
-  "fecha": "2025-09-03",
-  "descripcion": "Es mi primera tarea.",
-  "completada": false
-}{
-  "id": 5,
-  "titulo": "Mi primera tarea",
-  "prioridad": 0,
-  "fecha": "2025-09-03",
-  "descripcion": "Es mi primera tarea.",
-  "completada": false
-}{
-  "id": 5,
-  "titulo": "Mi primera tarea",
-  "prioridad": 0,
-  "fecha": "2025-09-04",
-  "descripcion": "Es mi primera tarea.",
-  "completada": false
-}{
-  "id": 5,
-  "titulo": "Mi primera tarea",
-  "prioridad": 0,
-  "fecha": "2025-09-04",
-  "descripcion": "Es mi primera tarea.",
-  "completada": false
+    "0": {
+        "titulo": "segunda tarea",
+        "prioridad": 1,
+        "fecha": "<built-in method today of type object at 0x1051b48b0>",
+        "descripcion": "",
+        "completada": false
+    },
+    "1": {
+        "titulo": "segunda tarea",
+        "prioridad": 1,
+        "fecha": "<built-in method today of type object at 0x100d488b0>",
+        "descripcion": "",
+        "completada": false
+    },
+    "2": {
+        "titulo": "segunda tarea",
+        "prioridad": 1,
+        "fecha": "<built-in method today of type object at 0x104a4c8b0>",
+        "descripcion": "",
+        "completada": false
+    },
+    "3": {
+        "titulo": "segunda tarea",
+        "prioridad": 1,
+        "fecha": "<built-in method today of type object at 0x100ce48b0>",
+        "descripcion": "",
+        "completada": false
+    },
+    "4": {
+        "titulo": "segunda tarea",
+        "prioridad": 1,
+        "fecha": "<built-in method today of type object at 0x104f688b0>",
+        "descripcion": "",
+        "completada": false
+    }
 }
