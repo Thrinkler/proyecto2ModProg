@@ -11,7 +11,8 @@ def getFromJSON(): #Regresa un diccionario de todos los archivos dentro de las t
 
 def addToJSON(dicAdded): #Añade el diccionario obtenido a la lista.
     data = getFromJSON()
-    idval = 0 if not data else max(int(k) for k in data.keys()) +1
+    
+    idval = 0 if not data else int(next(reversed(data.keys()))) + 1
     data[idval] = dicAdded
 
     with open("tarea.json", "w", encoding="UTF-8") as f:
