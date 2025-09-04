@@ -1,29 +1,12 @@
-import tarea
-import sys
-def add():
-    if(not ("--nombre" in sys.argv or "--fecha" in sys.argv)): ## mejorar retorno de errores
-        raise Exception("No tuviste las suficientes banderas")
+import cli
 
-    i = sys.argv.index("--nombre")
-
-    print("hola mundo, "+ str(i))
-
-def ls():
-    pass
-def find():
+def main():
+    parser = cli.start_parser()
+    args = parser.parse_args()
+    print(args)
+    
     pass
 
-print(sys.argv)
-
-match sys.argv[1]:
-    case 'add':
-        add()
-    case 'ls':
-        ls()
-
-    case 'find':
-        find()
-
-    case default:
-        raise Exception("Esa función no está implementada")
+if __name__ == "__main__":
+    main()
     
