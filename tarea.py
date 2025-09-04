@@ -3,7 +3,7 @@ import io_json
 import json
 class Tarea:
 
-    def __init__(self, titulo:str, prioridad:int, fecha:str,descripcion:str,completada:bool):
+    def __init__(self, titulo:str, prioridad:int, fecha:str,descripcion:str,completada=False):
         self.titulo = titulo
         self.prioridad=prioridad
         self.fecha = fecha
@@ -16,7 +16,7 @@ class Tarea:
     def toJson(self):
         return json.dumps(self.returnDic(),ensure_ascii = False, indent=2)
     def saveToJson(self):
-        io_json.addToJSON(dic())
+        io_json.addToJSON(self.dic())
         
             
 tar = Tarea("tercer tarea",1,str(datetime.datetime.today().date()),"",False)

@@ -47,5 +47,12 @@
     "fecha": "2025-09-04",
     "descripcion": "",
     "completada": false
+  },
+  "8": {
+    "titulo": "tercer tarea",
+    "prioridad": 1,
+    "fecha": "2025-09-04",
+    "descripcion": "",
+    "completada": false
   }
 }
