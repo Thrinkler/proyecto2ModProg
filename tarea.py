@@ -11,19 +11,23 @@ class Tarea:
     def locate(substr):
         return io_json.findFromJSON(substr)
 
-    def __init__(self, titulo:str, prioridad:int, fecha:str,descripcion:str,completada=False):
-        self.titulo = titulo
-        self.prioridad=prioridad
-        self.fecha = fecha
-        self.descripcion = descripcion
-        self.completada = completada
-
     def __init__(self, dictionary: dict):
         self.titulo = dictionary["titulo"]
         self.prioridad=dictionary["prioridad"]
         self.fecha = dictionary["fecha"]
         self.descripcion = dictionary["descripcion"]
+        self.tags=dictionary["tags"]
         self.completada = dictionary["completada"]
+        
+    def __init__(self, titulo:str, prioridad:int, fecha:str, descripcion:str,tags=[""], completada=False):
+        self.titulo = titulo
+        self.prioridad=prioridad
+        self.fecha = fecha
+        self.descripcion = descripcion
+        self.tags=tags
+        self.completada = completada
+
+    
 
     def dic(self):
         return vars(self)
