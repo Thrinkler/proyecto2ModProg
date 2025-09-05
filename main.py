@@ -42,16 +42,25 @@ def main():
                 print("Please provide a substring to search for.")
 
         case "complete":
-            print("Not implemented yet.") #@TODO
+            if args.filename:
+                tarea = Tarea.get(args.id)
+                tarea.complete()
+            else:
+                print("Please provide a task ID to complete.")
         case "delete":
-            print("Not implemented yet.") #@TODO
+            if args.filename:
+                tarea = Tarea.get(args.id)
+                tarea.complete()
+            else:
+                print("Please provide a task ID to complete.")
         case "save":
-            print("Not implemented yet.") #@TODO
+            if args.filename:
+                Tarea.save(args.filename)
+            else:
+                print("Please provide a filename to save tasks.")
 
-        case "":
-            print("No command provided. Use -h for help.")
         case default:
-            print("Unknown command. Use -h for help.")
+            print("TikiTiki Agenda: error: No command provided. Use -h for help. (choose from add, ls, find, complete, delete, save)")
 if __name__ == "__main__":
     main()
     
