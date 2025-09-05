@@ -10,11 +10,11 @@ def main():
     match args.command:
         case "add":
             tarea = Tarea(args.title, args.priority, args.date, args.description, args.tags, args.completed)
-            repo.addTask(tarea)
+            repo.add_task(tarea)
             print("Task added successfully.")
         case "ls":
-            tareas = repo.getTaskList()
-            
+            tareas = repo.get_task_list()
+
             if args.filter:
                 tareas = [t for t in tareas if any(tag in t.get("tags", []) for tag in args.filter)]
             
@@ -36,7 +36,7 @@ def main():
 
         case "find":
             if args.string:
-                tareas = repo.findTasks(args.string)
+                tareas = repo.find_tasks(args.string)
                 for tarea in tareas:
                     print(tarea)
             else:
@@ -44,19 +44,19 @@ def main():
 
         case "complete":
             if args.id:
-                repo.completeTask(args.id)
+                repo.complete_task(args.id)
                 print(f"Task {args.id} marked as completed.")
             else:
                 print("Please provide a task ID to complete.")
         case "delete":
             if args.id:
-                repo.deleteTask(args.id)
+                repo.delete_task(args.id)
                 print(f"Task {args.id} deleted successfully.")
             else:
                 print("Please provide a task ID to complete.")
         case "save":
             if args.filename:
-                repo.saveTask(args.filename)
+                repo.save_task(args.filename)
             else:
                 print("Please provide a filename to save tasks.")
 
