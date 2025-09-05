@@ -1,17 +1,23 @@
 from tarea import Tarea
 import io_json
 
-def getTask(id: int) -> Tarea:
+def get_task(id: int) -> Tarea:
     pass
 
-def getTaskList() -> list[Tarea]:
+def get_task_list() -> list[Tarea]:
     pass
 
-def findTasks(searchTerm: str) -> list[Tarea]:
+def add_task(tarea: Tarea) -> Tarea:
     pass
 
-def deleteTask(id: int) -> Tarea:
+def find_tasks(searchTerm: str) -> list[Tarea]:
     pass
 
-def saveTask():
+def delete_task(id: int) -> Tarea:
+    pass
+
+def save_task():
+    pass
+
+def complete_task(id: int) -> Tarea:
     pass

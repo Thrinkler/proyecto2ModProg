@@ -10,10 +10,10 @@ def date_yyyy_mm_dd(s: str) -> str:
     return s
 
 def start_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="TikiTiki Agenda", description="The best agenda... For the TikiTiki island.", epilog="Developed by Manuel Sandoval Arroyo & Arturo Espejel Baez")
+    parser = argparse.ArgumentParser(prog="TikiTiki Agenda", description="The best agenda... For the TikiTiki island.", epilog="Developed by Manuel Sandoval Arroyo & Juan Arturo Espejel Baez")
     parent = argparse.ArgumentParser(add_help=False)
     
-    subparser = parser.add_subparsers(dest="command", required=True)
+    subparser = parser.add_subparsers(dest="command", required=False)
 
     # Add
 

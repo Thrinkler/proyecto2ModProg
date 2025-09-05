@@ -6,7 +6,7 @@ class Tarea:
 
     @staticmethod
     def returnAll() -> list["Tarea"]:
-        task_dictionary = io_json.getArrayFromJSON()
+        task_dictionary = io_json.get_array_from_json()
         return [Tarea.from_dict(task) for task in task_dictionary]
     
 
@@ -54,7 +54,7 @@ class Tarea:
         self.completada = not self.completada
 
     def delete(self):
-        return io_json.deleteFromJSON(self.id)
+        return io_json.delete_task_from_json(self.id)
 
     def dic(self):
         return vars(self)
@@ -63,4 +63,4 @@ class Tarea:
         return json.dumps(self.dic(), ensure_ascii=False, indent=2)
 
     def saveToJson(self):
-        io_json.addToJSON(self.dic())
+        io_json.add_to_json(self.dic())
