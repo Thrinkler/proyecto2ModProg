@@ -7,6 +7,9 @@ def getTask(id: int) -> Tarea:
 def getTaskList() -> list[Tarea]:
     pass
 
+def addTask(tarea: Tarea) -> Tarea:
+    pass
+
 def findTasks(searchTerm: str) -> list[Tarea]:
     pass
 
@@ -14,4 +17,7 @@ def deleteTask(id: int) -> Tarea:
     pass
 
 def saveTask():
+    pass
+
+def completeTask(id: int) -> Tarea:
     pass
