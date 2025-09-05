@@ -10,7 +10,7 @@ class Tarea:
         prioridad: int,
         fecha: str,
         descripcion: str,
-        tags=[""],
+        tags=[],
         completada=False,
     ):
         self.id: int = id
@@ -24,6 +24,7 @@ class Tarea:
     @classmethod
     def from_dict(cls, dic):
         return cls(
+            dic["id"],
             dic["titulo"],
             dic["prioridad"],
             dic["fecha"],

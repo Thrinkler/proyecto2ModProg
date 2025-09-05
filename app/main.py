@@ -19,26 +19,27 @@ def main():
                 tareas = [t for t in tareas if any(tag in t.get("tags", []) for tag in args.filter)]
             
             if not args.all:
-                tareas = [t for t in tareas if not t["completada"]]
+                tareas = [t for t in tareas if not t.completada]
             
             if args.completed:
-                tareas = [t for t in tareas if t["completada"]]
+                tareas = [t for t in tareas if t.completada]
             
+            print(tarea.fecha for tarea in tareas)
             if args.sort == "date":
-                tareas.sort(key=lambda x: x["fecha"], reverse=args.reverse)
+                tareas.sort(key=lambda x: x.fecha, reverse=args.reverse)
             elif args.sort == "priority":
-                tareas.sort(key=lambda x: x["prioridad"], reverse=args.reverse)
+                tareas.sort(key=lambda x: x.prioridad, reverse=args.reverse)
             elif args.sort == "title":
-                tareas.sort(key=lambda x: x["titulo"], reverse=args.reverse)
-            
+                tareas.sort(key=lambda x: x.titulo, reverse=args.reverse)
+
             for tarea in tareas:
-                print(Tarea(tarea).toJson())
+                print(tarea.to_json())
 
         case "find":
             if args.string:
                 tareas = repo.find_tasks(args.string)
                 for tarea in tareas:
-                    print(tarea)
+                    print(tarea.to_json)
             else:
                 print("Please provide a substring to search for.")
 
