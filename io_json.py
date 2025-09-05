@@ -13,6 +13,12 @@ def load_json() -> (
             data = json.loads(content)
     return data
 
+def get_task_dict_from_json(idval) -> dict | None:
+    data = load_json()
+    task = data.get(str(idval))
+    if task:
+        return {"id": int(idval), **task}
+    return None
 
 def get_array_from_json() -> (
     list[dict]
