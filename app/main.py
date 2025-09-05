@@ -1,6 +1,6 @@
 import cli
-from tarea import Tarea
-import repo
+from app.tarea import Tarea
+import app.repo as repo
 
 def main():
     parser = cli.start_parser()
