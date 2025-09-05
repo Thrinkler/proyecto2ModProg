@@ -39,7 +39,7 @@ def main():
             if args.string:
                 tareas = repo.find_tasks(args.string)
                 for tarea in tareas:
-                    print(tarea.to_json)
+                    print(tarea.to_json())
             else:
                 print("Please provide a substring to search for.")
 

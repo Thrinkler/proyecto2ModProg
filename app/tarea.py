@@ -3,9 +3,9 @@ import io_json
 import json
 
 class Tarea:
+    id = 0
     def __init__(
         self,
-        id: int,
         titulo: str,
         prioridad: int,
         fecha: str,
@@ -13,7 +13,6 @@ class Tarea:
         tags=[],
         completada=False,
     ):
-        self.id: int = id
         self.titulo = titulo
         self.prioridad = prioridad
         self.fecha = fecha
@@ -23,8 +22,8 @@ class Tarea:
 
     @classmethod
     def from_dict(cls, dic):
-        return cls(
-            dic["id"],
+        
+        tarea = cls(
             dic["titulo"],
             dic["prioridad"],
             dic["fecha"],
@@ -32,6 +31,8 @@ class Tarea:
             dic.get("tags", [""]),
             dic.get("completada", False),
         )
+        tarea.id = dic["id"]
+        return tarea
 
     def complete(self):
         self.completada = True
@@ -43,4 +44,4 @@ class Tarea:
         return vars(self)
 
     def to_json(self):
-        return json.dumps(self.dic(), ensure_ascii=False, indent=2)
+        return json.dumps({"id": self.id, **self.dic()}, ensure_ascii=False, indent=2)

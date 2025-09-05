@@ -16,6 +16,7 @@ def add_task(tarea: Tarea) -> Tarea:
 
 def find_tasks(search_term: str) -> list[Tarea]:
     all_tasks = get_task_list()
+    
     matching_tasks = [task for task in all_tasks if search_term.lower() in task.titulo.lower() or search_term.lower() in task.descripcion.lower()]
     return matching_tasks
 
