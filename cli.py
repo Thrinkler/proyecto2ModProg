@@ -10,7 +10,7 @@ def date_yyyy_mm_dd(s: str) -> str:
     return s
 
 def start_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="PixelPlanner", description="The best task manager... If it were the 80s.", epilog="Developed by Manuel Sandoval Arroyo & Arturo Espejel Baez")
+    parser = argparse.ArgumentParser(prog="TikiTiki Agenda", description="The best agenda... For the TikiTiki island.", epilog="Developed by Manuel Sandoval Arroyo & Arturo Espejel Baez")
     parent = argparse.ArgumentParser(add_help=False)
     
     subparser = parser.add_subparsers(dest="command", required=True)
@@ -35,4 +35,13 @@ def start_parser() -> argparse.ArgumentParser:
     # find
     find = subparser.add_parser("find", parents=[parent], help="find tasks by substring")
     find.add_argument("string", type=str, help="Substring to search for in task titles and descriptions")
+    # done
+    done = subparser.add_parser("done", parents=[parent], help="Mark a task as completed")
+    done.add_argument("id", type=int, help="ID of the task to mark as completed")
+    # delete
+    delete = subparser.add_parser("delete", parents=[parent], help="Delete a task")
+    delete.add_argument("id", type=int, help="ID of the task to delete")
+    # save
+    save = subparser.add_parser("save", parents=[parent], help="Save tasks to a file")
+    save.add_argument("filename", type=str, help="Filename to save tasks to")
     return parser
