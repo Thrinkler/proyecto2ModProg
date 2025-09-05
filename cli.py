@@ -32,4 +32,7 @@ def start_parser() -> argparse.ArgumentParser:
     ls.add_argument("-a", "--all", help="Show all tasks including completed ones", action="store_true")
     ls.add_argument("-c", "--completed", help="Show only completed tasks", action="store_true")
 
+    # find
+    find = subparser.add_parser("find", parents=[parent], help="find tasks by substring")
+    find.add_argument("string", type=str, help="Substring to search for in task titles and descriptions")
     return parser
