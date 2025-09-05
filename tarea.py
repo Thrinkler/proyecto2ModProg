@@ -10,14 +10,10 @@ class Tarea:
     @staticmethod
     def locate(substr):
         return io_json.findFromJSON(substr)
-
-    def __init__(self, dictionary: dict):
-        self.titulo = dictionary["titulo"]
-        self.prioridad=dictionary["prioridad"]
-        self.fecha = dictionary["fecha"]
-        self.descripcion = dictionary["descripcion"]
-        self.tags=dictionary["tags"]
-        self.completada = dictionary["completada"]
+    
+    @staticmethod
+    def save(str):
+        pass
         
     def __init__(self, titulo:str, prioridad:int, fecha:str, descripcion:str,tags=[""], completada=False):
         self.titulo = titulo
@@ -27,7 +23,11 @@ class Tarea:
         self.tags=tags
         self.completada = completada
 
+    def complete(self):
+        pass
     
+    def delete(self):
+        pass
 
     def dic(self):
         return vars(self)

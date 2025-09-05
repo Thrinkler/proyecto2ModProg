@@ -41,7 +41,7 @@ def main():
             else:
                 print("Please provide a substring to search for.")
 
-        case "done":
+        case "complete":
             print("Not implemented yet.") #@TODO
         case "delete":
             print("Not implemented yet.") #@TODO
