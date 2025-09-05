@@ -1,4 +1,4 @@
-from app.tarea import Tarea
+from tarea import Tarea
 import io_json
 
 def get_task(id: int) -> Tarea:
