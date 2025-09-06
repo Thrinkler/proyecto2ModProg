@@ -128,24 +128,6 @@
     "tags": [],
     "completada": false
   },
-  "18": {
-    "id": "tarea",
-    "titulo": 3,
-    "prioridad": "2025-09-05",
-    "fecha": "",
-    "descripcion": [],
-    "tags": false,
-    "completada": false
-  },
-  "19": {
-    "id": "tarea",
-    "titulo": 3,
-    "prioridad": "2025-09-05",
-    "fecha": "",
-    "descripcion": [],
-    "tags": false,
-    "completada": false
-  },
   "20": {
     "titulo": "hello",
     "prioridad": 3,
