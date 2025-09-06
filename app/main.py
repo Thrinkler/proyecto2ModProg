@@ -1,27 +1,39 @@
 import datetime
 import cli
-from tarea import Tarea
+from tarea import Tarea, TareaCreate
 import repo as repo
+
 
 def main():
     parser = cli.start_parser()
     args = parser.parse_args()
-    #print(args)
+    # print(args)
 
     match args.command:
         case "add":
-            tarea = Tarea(args.title, args.priority, args.date, args.description, args.tags, args.completed)
+            tarea = TareaCreate(
+                titulo=args.title,
+                prioridad=args.priority,
+                fecha=args.date,
+                descripcion=args.description,
+                tags=args.tags,
+            )
             repo.add_task(tarea)
             print("Task added successfully.")
         case "ls":
             tareas = repo.get_task_list()
+            print(tareas)
 
             if args.filter:
-                tareas = [t for t in tareas if any(tag in t.get("tags", []) for tag in args.filter)]
-            
+                tareas = [
+                    t
+                    for t in tareas
+                    if any(tag in t.get("tags", []) for tag in args.filter)
+                ]
+
             if not args.all:
                 tareas = [t for t in tareas if not t.completada]
-            
+
             if args.completed:
                 tareas = [t for t in tareas if t.completada]
             if args.sort == "date":
@@ -75,7 +87,10 @@ def main():
                 print("Please provide a filename to save tasks.")
 
         case default:
-            print("TikiTiki Agenda: error: No command provided. Use -h for help. (choose from add, ls, find, complete, delete, save)")
+            print(
+                "TikiTiki Agenda: error: No command provided. Use -h for help. (choose from add, ls, find, complete, delete, save)"
+            )
+
+
 if __name__ == "__main__":
     main()
-    
