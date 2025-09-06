@@ -26,7 +26,7 @@ def start_parser() -> argparse.ArgumentParser:
     add.add_argument("-c", "--completed", action="store_true", help="Mark the task as completed")
     # ls
     ls = subparser.add_parser("ls", parents=[parent], help="List all tasks")
-    ls.add_argument("-s", "--sort", type=str, choices=["date", "priority", "title"], default="date", help="Sort tasks by (date, priority, title)")
+    ls.add_argument("-s", "--sort", type=str, choices=["date", "priority", "title"], default="", help="Sort tasks by (date, priority, title)")
     ls.add_argument("-f", "--filter", type=str, nargs="*", default=[], help="Filter tasks by tags")
     ls.add_argument("-r", "--reverse", help="Reverse the sort order", action="store_true")
     ls.add_argument("-a", "--all", help="Show all tasks including completed ones", action="store_true")

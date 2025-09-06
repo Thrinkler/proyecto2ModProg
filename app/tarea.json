@@ -1,138 +1,33 @@
 {
+  "0": {
+    "titulo": "mi primer tarea",
+    "prioridad": 5,
+    "fecha": "2025-09-06",
+    "descripcion": "cómo hacer una tarea",
+    "tags": [],
+    "completada": false
+  },
   "1": {
-    "titulo": "segunda tarea",
-    "prioridad": 1,
-    "fecha": "2025-09-04",
-    "descripcion": "",
+    "titulo": "mi segunda tarea",
+    "prioridad": 5,
+    "fecha": "2025-08-06",
+    "descripcion": "cómo hacer una segunda tarea",
+    "tags": [],
     "completada": false
   },
   "2": {
-    "titulo": "segunda tarea",
-    "prioridad": 1,
-    "fecha": "2025-09-04",
-    "descripcion": "",
+    "titulo": "mi segunda tarea",
+    "prioridad": 5,
+    "fecha": "2024-08-06",
+    "descripcion": "cómo hacer una segunda tarea",
+    "tags": [],
     "completada": false
   },
   "3": {
-    "titulo": "segunda tarea",
-    "prioridad": 1,
-    "fecha": "2025-09-04",
-    "descripcion": "",
-    "completada": false
-  },
-  "4": {
-    "titulo": "segunda tarea",
-    "prioridad": 1,
-    "fecha": "2025-09-04",
-    "descripcion": "",
-    "completada": false
-  },
-  "5": {
-    "titulo": "segunda tarea",
-    "prioridad": 1,
-    "fecha": "2025-09-04",
-    "descripcion": "",
-    "completada": false
-  },
-  "6": {
-    "titulo": "segunda tarea",
-    "prioridad": 1,
-    "fecha": "2025-09-04",
-    "descripcion": "",
-    "completada": false
-  },
-  "7": {
-    "titulo": "tercer tarea",
-    "prioridad": 1,
-    "fecha": "2025-09-04",
-    "descripcion": "",
-    "completada": false
-  },
-  "8": {
-    "titulo": "tercer tarea",
-    "prioridad": 1,
-    "fecha": "2025-09-04",
-    "descripcion": "",
-    "completada": false
-  },
-  "9": {
-    "titulo": "hello",
-    "prioridad": 3,
-    "fecha": "2025-09-05",
-    "descripcion": "I like life",
-    "completada": false
-  },
-  "10": {
-    "titulo": "hello",
-    "prioridad": 3,
-    "fecha": "2025-09-05",
-    "descripcion": "I like life",
-    "completada": false
-  },
-  "11": {
-    "titulo": "hello",
-    "prioridad": 3,
-    "fecha": "2025-09-05",
-    "descripcion": "I like life",
-    "completada": false
-  },
-  "12": {
-    "titulo": "hello",
-    "prioridad": 3,
-    "fecha": "2025-09-05",
-    "descripcion": "I like life",
-    "completada": false
-  },
-  "13": {
-    "titulo": "hola",
-    "prioridad": 1,
-    "fecha": "2005-10-09",
-    "descripcion": "hola",
-    "tags": [],
-    "completada": false
-  },
-  "14": {
-    "titulo": "hola",
-    "prioridad": 1,
-    "fecha": "2005-10-09",
-    "descripcion": "hola",
-    "tags": [
-      "amigos"
-    ],
-    "completada": false
-  },
-  "15": {
-    "titulo": "hola",
-    "prioridad": 1,
-    "fecha": "2005-10-09",
-    "descripcion": "hola",
-    "tags": [
-      "amigos",
-      "hola"
-    ],
-    "completada": false
-  },
-  "16": {
-    "titulo": "hola",
-    "prioridad": 3,
-    "fecha": "2025-09-05",
-    "descripcion": "",
-    "tags": [],
-    "completada": false
-  },
-  "17": {
-    "titulo": "hola",
-    "prioridad": 3,
-    "fecha": "2025-09-05",
-    "descripcion": "",
-    "tags": [],
-    "completada": false
-  },
-  "19": {
-    "titulo": "holaa",
-    "prioridad": 3,
-    "fecha": "2025-09-05",
-    "descripcion": "",
+    "titulo": "mi segunda tarea",
+    "prioridad": 5,
+    "fecha": "2024-08-14",
+    "descripcion": "cómo hacer una segunda tarea",
     "tags": [],
     "completada": false
   }

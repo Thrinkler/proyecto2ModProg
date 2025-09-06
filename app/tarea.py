@@ -13,6 +13,8 @@ class Tarea:
         tags=[],
         completada=False,
     ):
+        if(not (1 <= prioridad <= 5)):
+            raise ValueError("Priority must be between 1 and 5")
         self.titulo = titulo
         self.prioridad = prioridad
         self.fecha = fecha
