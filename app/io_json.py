@@ -1,46 +1,55 @@
 import json
+from pathlib import Path
+from typing import Dict, Any, List, Optional
 
-import datetime
+FILE = Path("tarea.json")
 
+def _load_json() -> Dict[str, Any]:
+    if not FILE.exists():
+        return {}
+    content = FILE.read_text(encoding="utf-8").strip()
+    return json.loads(content) if content else {}
 
-def load_json() -> (
-    dict
-):  # Regresa un diccionario de todos los archivos dentro de las tareas.
-    data = {}
-    with open("tarea.json", "r", encoding="UTF-8") as f:
-        content = f.read().strip()
-        if content:
-            data = json.loads(content)
-    return data
+def _save_json(data: Dict[str, Any]) -> None:
+    FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
-def get_task_dict_from_json(idval) -> dict | None:
-    data = load_json()
-    task = data.get(str(idval))
-    if task:
-        return {"id": int(idval), **task}
-    return None
+def get_task_dict(task_id: int) -> Optional[Dict[str, Any]]:
+    data = _load_json()
+    rec = data.get(str(task_id))
+    return {"id": task_id, **rec} if rec else None
 
-def get_array_from_json() -> (
-    list[dict]
-):  
-    data = load_json()
-    return [{"id": int(task_id), **task} for task_id, task in data.items()]
+def list_task_dicts() -> List[Dict[str, Any]]:
+    data = _load_json()
+    # keys are strings in JSON; expose id as int in returned dicts
+    return [{"id": int(k), **v} for k, v in data.items()]
 
+def _next_id(data: Dict[str, Any]) -> int:
+    if not data:
+        return 1
+    return max(int(k) for k in data.keys()) + 1
 
-def add_to_json(dicAdded):  
-    data = load_json()
+def insert_task_dict(payload: Dict[str, Any]) -> Dict[str, Any]:
+    data = _load_json()
+    task_id = _next_id(data)
+    data[str(task_id)] = {k: v for k, v in payload.items() if k != "id"}
+    _save_json(data)
+    return {"id": task_id, **data[str(task_id)]}
 
-    idval = 0 if not data else int(next(reversed(data.keys()))) + 1
-    data[idval] = dicAdded
+def upsert_task_dict(task: Dict[str, Any]) -> Dict[str, Any]:
+    """Update or insert by id (id required)."""
+    if "id" not in task:
+        raise ValueError("upsert_task_dict requires 'id'")
+    data = _load_json()
+    task_id = int(task["id"])
+    data[str(task_id)] = {k: v for k, v in task.items() if k != "id"}
+    _save_json(data)
+    return {"id": task_id, **data[str(task_id)]}
 
-    with open("tarea.json", "w", encoding="UTF-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-
-def delete_task_from_json(idval):
-    data = load_json()
-    if str(idval) in data:
-        del data[str(idval)]
-        with open("tarea.json", "w", encoding="UTF-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
+def delete_task(task_id: int) -> bool:
+    data = _load_json()
+    key = str(task_id)
+    if key in data:
+        del data[key]
+        _save_json(data)
         return True
     return False

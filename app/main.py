@@ -1,5 +1,5 @@
 import cli
-from tarea import Tarea
+from tarea import Tarea, TareaCreate
 import repo as repo
 
 def main():
@@ -9,7 +9,13 @@ def main():
 
     match args.command:
         case "add":
-            tarea = Tarea(args.title, args.priority, args.date, args.description, args.tags, args.completed)
+            tarea = TareaCreate(
+                titulo=args.title,
+                prioridad=args.priority,
+                fecha=args.date,
+                descripcion=args.description,
+                tags=args.tags
+            )
             repo.add_task(tarea)
             print("Task added successfully.")
         case "ls":
@@ -39,7 +45,7 @@ def main():
             if args.string:
                 tareas = repo.find_tasks(args.string)
                 for tarea in tareas:
-                    print(tarea.to_json)
+                    print(tarea.to_json())
             else:
                 print("Please provide a substring to search for.")
 
