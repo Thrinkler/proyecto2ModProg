@@ -78,14 +78,9 @@ def start_parser() -> argparse.ArgumentParser:
     )
 
     # find
-    find = subparser.add_parser(
-        "find", parents=[parent], help="find tasks by substring"
-    )
-    find.add_argument(
-        "string",
-        type=str,
-        help="Substring to search for in task titles and descriptions",
-    )
+    find = subparser.add_parser("find", parents=[parent], help="find tasks by substring")
+    find.add_argument("string", type=str, help="Substring to search for in task titles and descriptions")
+    find.add_argument("-s", "--sort", type=str, choices=["date", "priority", "title"], default="", help="Sort tasks by (date, priority, title)")
     # completa
     complete = subparser.add_parser(
         "complete", parents=[parent], help="Mark a task as completed"

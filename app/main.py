@@ -1,3 +1,4 @@
+import datetime
 import cli
 from tarea import Tarea, TareaCreate
 import repo as repo
@@ -35,21 +36,33 @@ def main():
 
             if args.completed:
                 tareas = [t for t in tareas if t.completada]
-
-            print(tarea.fecha for tarea in tareas)
             if args.sort == "date":
-                tareas.sort(key=lambda x: x.fecha, reverse=args.reverse)
+                print("Sorting by date...")
+                tareas.sort(key=lambda x: datetime.datetime.strptime(x.fecha, "%Y-%m-%d"), reverse=args.reverse)
             elif args.sort == "priority":
+                print("Sorting by priority...")
                 tareas.sort(key=lambda x: x.prioridad, reverse=args.reverse)
             elif args.sort == "title":
+                print("Sorting by title...")
                 tareas.sort(key=lambda x: x.titulo, reverse=args.reverse)
-
+            else:
+                tareas.sort(key=lambda x: int(x.id), reverse=args.reverse)
             for tarea in tareas:
                 print(tarea.to_json())
 
         case "find":
             if args.string:
                 tareas = repo.find_tasks(args.string)
+                if args.sort == "date":
+                    print("Sorting by date...")
+                    tareas.sort(key=lambda x: datetime.datetime.strptime(x.fecha, "%Y-%m-%d"))
+                elif args.sort == "priority":
+                    print("Sorting by priority...")
+                    tareas.sort(key=lambda x: x.prioridad)
+                elif args.sort == "title":
+                    print("Sorting by title...")
+                    tareas.sort(key=lambda x: x.titulo)
+
                 for tarea in tareas:
                     print(tarea.to_json())
             else:

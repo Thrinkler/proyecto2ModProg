@@ -40,3 +40,7 @@ def complete_task(task_id: int) -> Optional[Tarea]:
     task.complete()
     rec = io_json.upsert_task_dict(task.to_dict())  # keep the same id
     return Tarea.from_dict(rec)
+
+def save_task():
+    pass
+

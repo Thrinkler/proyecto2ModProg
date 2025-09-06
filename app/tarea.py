@@ -5,9 +5,9 @@ from typing import Optional, List, Dict, Any
 
 
 class Tarea:
+    id = 0
     def __init__(
         self,
-        id: int,
         titulo: str,
         prioridad: int,
         fecha: str,
@@ -15,7 +15,8 @@ class Tarea:
         tags: List[str] = None,
         completada: bool = False,
     ):
-        self.id = id
+        if(not (1 <= prioridad <= 5)):
+            raise ValueError("Priority must be between 1 and 5")
         self.titulo = titulo
         self.prioridad = prioridad
         self.fecha = fecha  # keep as ISO string if that’s your contract
@@ -24,22 +25,25 @@ class Tarea:
         self.completada = completada
 
     @classmethod
-    def from_dict(cls, d: Dict[str, Any]) -> "Tarea":
-        return cls(
-            id=int(d["id"]),
-            titulo=d["titulo"],
-            prioridad=int(d["prioridad"]),
-            fecha=d["fecha"],
-            descripcion=d.get("descripcion", ""),
-            tags=list(d.get("tags", [])),  # consistent: []
-            completada=bool(d.get("completada", False)),
+    def from_dict(cls, dic:Dict[str, Any]) -> "Tarea"):
+        
+        tarea = cls(
+            dic["titulo"],
+            dic["prioridad"],
+            dic["fecha"],
+            dic["descripcion"],
+            dic.get("tags", [""]),
+            dic.get("completada", False)
         )
+        tarea.id = dic["id"]
+        return tarea
 
     def complete(self) -> None:
         self.completada = True
 
     def toggle(self) -> None:
         self.completada = not self.completada
+
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -63,8 +67,6 @@ class TareaCreate:
     fecha: str
     descripcion: str
     tags: Optional[List[str]] = None
-    # Usually omit 'completada' in a Create DTO; set it in repo/service.
-    # If you keep it, default should be False and normalized where you build Tarea.
 
     def __post_init__(self):
         if self.tags is None:
@@ -97,3 +99,5 @@ class TareaCreate:
             "tags": self.tags or [],
             "completada": False,  # enforce default on creation
         }
+    def to_json(self):
+        return json.dumps({"id": self.id, **self.dic()}, ensure_ascii=False, indent=2)
