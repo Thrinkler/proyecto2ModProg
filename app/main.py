@@ -41,6 +41,16 @@ def main():
         case "find":
             if args.string:
                 tareas = repo.find_tasks(args.string)
+                if args.sort == "date":
+                    print("Sorting by date...")
+                    tareas.sort(key=lambda x: datetime.datetime.strptime(x.fecha, "%Y-%m-%d"))
+                elif args.sort == "priority":
+                    print("Sorting by priority...")
+                    tareas.sort(key=lambda x: x.prioridad)
+                elif args.sort == "title":
+                    print("Sorting by title...")
+                    tareas.sort(key=lambda x: x.titulo)
+
                 for tarea in tareas:
                     print(tarea.to_json())
             else:
