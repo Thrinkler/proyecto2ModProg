@@ -22,7 +22,6 @@ def main():
             print("Task added successfully.")
         case "ls":
             tareas = repo.get_task_list()
-            print(tareas)
 
             if args.filter:
                 tareas = [

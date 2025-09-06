@@ -21,7 +21,7 @@
     "fecha": "2024-08-06",
     "descripcion": "cómo hacer una segunda tarea",
     "tags": [],
-    "completada": false
+    "completada": true
   },
   "3": {
     "titulo": "mi segunda tarea",
@@ -29,6 +29,6 @@
     "fecha": "2024-08-14",
     "descripcion": "cómo hacer una segunda tarea",
     "tags": [],
-    "completada": false
+    "completada": true
   }
 }

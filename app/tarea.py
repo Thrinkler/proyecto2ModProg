@@ -25,7 +25,7 @@ class Tarea:
         self.completada = completada
 
     @classmethod
-    def from_dict(cls, dic:Dict[str, Any]) -> "Tarea"):
+    def from_dict(cls, dic:Dict[str, Any]) -> "Tarea":
         
         tarea = cls(
             dic["titulo"],

@@ -58,7 +58,7 @@ def start_parser() -> argparse.ArgumentParser:
         "--sort",
         type=str,
         choices=["date", "priority", "title"],
-        default="date",
+        default="",
         help="Sort tasks by (date, priority, title)",
     )
     ls.add_argument(
