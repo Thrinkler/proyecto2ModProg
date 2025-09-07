@@ -6,7 +6,7 @@ TikiTiki Agenda [-h] {add,ls,find,complete,delete,save}
 
 
 Functions:
-  {add,ls,find,complete,delete,save}
+
     add                 Add a new task
         -h, --help            show its help message and exit
         -d, --description DESCRIPTION
@@ -17,6 +17,7 @@ Functions:
         -t, --tags [TAGS ...]
                         Tags for the task
         -c, --completed       Mark the task as completed
+        
     ls                  List all tasks
         -h, --help            show its help message and exit
         -s, --sort {date,priority,title}
@@ -26,30 +27,28 @@ Functions:
         -r, --reverse         Reverse the sort order
         -a, --all             Show all tasks including completed ones
         -c, --completed       Show only completed tasks
+        
     find                find tasks by substring
         -h, --help            show its help message and exit
         -s, --sort {date,priority,title}
                         Sort tasks by (date, priority, title)
+                        
     complete            Mark a task as completed
         positional arguments:
             id          ID of the task to mark as completed
         options:
             -h, --help  show its help message and exit
+            
     delete              Delete a task
     positional arguments:
         id          ID of the task to delete
-
-    options:
+        options:
         -h, --help  show its help message and exit
+        
     save                Save tasks to a file
         positional arguments:
             filename    Filename to save tasks to
-
         options:
             -h, --help  show its help message and exit
-
-
-options:
-  -h, --help            show its help message and exit
 
 Developed by Manuel Sandoval Arroyo & Juan Arturo Espejel Baez
