@@ -2,8 +2,10 @@
 
 ## The best agenda... for the TikiTiki island.
 
-TikiTiki Agenda [-h] {add,ls,find,complete,delete,save}
+To start working with it (beta), type on the terminal inside 
+the main folder:
 
+    python3 app/main.py [-h] {add,ls,find,complete,delete,save}
 
 Functions:
 
