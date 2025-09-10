@@ -4,29 +4,27 @@ from datetime import date
 from typing import Optional, List, Dict, Any
 
 
-class Tarea:
-    id = 0
-    def __init__(
-        self,
-        titulo: str,
-        prioridad: int,
-        fecha: str,
-        descripcion: str,
-        tags: List[str] = None,
-        completada: bool = False,
-    ):
-        if(not (1 <= prioridad <= 5)):
-            raise ValueError("Priority must be between 1 and 5")
-        self.titulo = titulo
-        self.prioridad = prioridad
-        self.fecha = fecha  # keep as ISO string if that’s your contract
-        self.descripcion = descripcion
-        self.tags = list(tags) if tags is not None else []  # defensive copy
-        self.completada = completada
+@dataclass
+class TareaBase:
+    titulo: str
+    prioridad: int
+    fecha: str
+    descripcion: str
+    tags: Optional[List[str]] = None
+    completada: bool = False
+
+    def to_dict(self) -> Dict[str, Any]:
+        return self.__dict__
+    
+    def to_json(self) -> str:
+        return json.dumps(self.to_dict(), ensure_ascii=False, indent=2)
+
+
+class Tarea(TareaBase):
+    id: int = 0
 
     @classmethod
     def from_dict(cls, dic:Dict[str, Any]) -> "Tarea":
-        
         tarea = cls(
             dic["titulo"],
             dic["prioridad"],
@@ -45,28 +43,13 @@ class Tarea:
         self.completada = not self.completada
 
 
-    def to_dict(self) -> Dict[str, Any]:
-        return {
-            "id": self.id,
-            "titulo": self.titulo,
-            "prioridad": self.prioridad,
-            "fecha": self.fecha,
-            "descripcion": self.descripcion,
-            "tags": list(self.tags),  # avoid exposing internal list
-            "completada": self.completada,
-        }
+    def to_dict(self) -> Dict[str, Any]:  # {"id": self.id, **self.dic()}
+        return  {"id": self.id, **super().to_dict()}
 
-    def to_json(self) -> str:
-        return json.dumps(self.to_dict(), ensure_ascii=False, indent=2)
+    
 
 
-@dataclass
-class TareaCreate:
-    titulo: str
-    prioridad: int
-    fecha: str
-    descripcion: str
-    tags: Optional[List[str]] = None
+class TareaCreate(TareaBase):
 
     def __post_init__(self):
         if self.tags is None:
@@ -88,16 +71,3 @@ class TareaCreate:
         self.titulo = self.titulo.strip()
         self.descripcion = self.descripcion.strip()
         self.tags = [tag.strip() for tag in self.tags if tag.strip()]
-
-    def to_dict(self) -> Dict[str, Any]:
-        # Handy when passing to persistence layer
-        return {
-            "titulo": self.titulo,
-            "prioridad": self.prioridad,
-            "fecha": self.fecha,
-            "descripcion": self.descripcion,
-            "tags": self.tags or [],
-            "completada": False,  # enforce default on creation
-        }
-    def to_json(self):
-        return json.dumps({"id": self.id, **self.dic()}, ensure_ascii=False, indent=2)

@@ -7,7 +7,6 @@ import repo as repo
 def main():
     parser = cli.start_parser()
     args = parser.parse_args()
-    # print(args)
 
     match args.command:
         case "add":
@@ -69,14 +68,17 @@ def main():
 
         case "complete":
             if args.id:
-                repo.complete_task(args.id)
-                print(f"Task {args.id} marked as completed.")
+                tarea = repo.complete_task(args.id)
+                if(not tarea): print(f"Task {args.id} does not exist.")
+                else: print(f"Task {args.id} marked as completed.")
             else:
                 print("Please provide a task ID to complete.")
         case "delete":
             if args.id:
-                repo.delete_task(args.id)
-                print(f"Task {args.id} deleted successfully.")
+                tarea = repo.delete_task(args.id)
+
+                if(not tarea): print(f"Task {args.id} does not exist.")
+                else: print(f"Task {args.id} deleted successfully.")
             else:
                 print("Please provide a task ID to complete.")
         case "save":
