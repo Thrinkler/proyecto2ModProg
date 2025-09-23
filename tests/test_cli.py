@@ -39,8 +39,6 @@ def test_cli_add_and_ls(capsys):
     assert "Task added successfully." in out
 
     out = capture_run(["ls"], capsys)
-
-    # should print JSON per task
     lines = [ln for ln in out.splitlines() if ln.strip().startswith("{")]
     assert len(lines) == 1
     d = json.loads(out)
@@ -51,15 +49,9 @@ def test_cli_add_and_ls(capsys):
 
 
 def test_cli_parser_rejects_bad_date():
-    # Test the argparse type directly via cli.date_yyyy_mm_dd
     import argparse
     from app.cli import date_yyyy_mm_dd
     with pytest.raises(argparse.ArgumentTypeError):
         date_yyyy_mm_dd("2025/01/01")
 
 
-@pytest.mark.xfail(reason="repo.save_task is not implemented and signature mismatch")
-def test_cli_save_xfail(capsys):
-    out = capture_run(["save", "out.json"], capsys)
-    # Expect implementation later; this test marks desired behavior
-    assert "Saved" in out

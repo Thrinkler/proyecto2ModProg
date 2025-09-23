@@ -2,25 +2,24 @@ import json
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 
-FILE = Path("tarea.json")  # or Path(__file__).with_name("tarea.json")
+FILE = Path("tarea.json")  
 
 
 def _ensure_store() -> None:
     """Make sure the parent folder and JSON file exist."""
     FILE.parent.mkdir(parents=True, exist_ok=True)
     if not FILE.exists():
-        FILE.write_text("{}", encoding="utf-8")  # start as empty object
+        FILE.write_text("{}", encoding="utf-8")  
 
 
 def _load_json() -> Dict[str, Any]:
     _ensure_store()
     content = FILE.read_text(encoding="utf-8").strip()
     if not content:
-        return {}  # empty file → treat as empty store
+        return {} 
     try:
         return json.loads(content)
     except json.JSONDecodeError:
-        # Backup the bad file and reset to {}
         FILE.with_suffix(FILE.suffix + ".bak").write_text(content, encoding="utf-8")
         FILE.write_text("{}", encoding="utf-8")
         return {}
@@ -28,7 +27,6 @@ def _load_json() -> Dict[str, Any]:
 
 def _save_json(data: Dict[str, Any]) -> None:
     _ensure_store()
-    # atomic-ish write: write to temp then replace
     tmp = FILE.with_suffix(FILE.suffix + ".tmp")
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     tmp.replace(FILE)
@@ -42,7 +40,6 @@ def get_task_dict(task_id: int) -> Optional[Dict[str, Any]]:
 
 def list_task_dicts() -> List[Dict[str, Any]]:
     data = _load_json()
-    # keys are strings in JSON; expose id as int in returned dicts
     return [{"id": int(k), **v} for k, v in data.items()]
 
 

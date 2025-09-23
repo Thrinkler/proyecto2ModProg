@@ -13,14 +13,12 @@ def isolate_json_store(tmp_path, monkeypatch):
     # Manually reset the module's in-memory cache before each test.
     # NOTE: You must find the actual name of the variable in your
     # app/io_json.py that holds the data. It might be _DATA, _cache, _tasks, etc.
-    if hasattr(io_json, "_DATA"):  # A safe way to check
+    if hasattr(io_json, "_DATA"):  
         monkeypatch.setattr(io_json, "_DATA", {})
-
-    # This part you already have is correct
     monkeypatch.setattr(io_json, "FILE", tmp_path / "tarea.json", raising=True)
     io_json._ensure_store()
 
-    yield  # The test runs here
+    yield 
 
 
 @pytest.fixture

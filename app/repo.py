@@ -38,7 +38,7 @@ def complete_task(task_id: int) -> Optional[Tarea]:
     if not task:
         return None
     task.complete()
-    rec = io_json.upsert_task_dict(task.to_dict())  # keep the same id
+    rec = io_json.upsert_task_dict(task.to_dict())  
     return Tarea.from_dict(rec)
 
 def save_task():
