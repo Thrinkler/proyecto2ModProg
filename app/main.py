@@ -1,7 +1,7 @@
 import datetime
-import cli
-from tarea import Tarea, TareaCreate
-import repo as repo
+from . import cli
+from .tarea import Tarea, TareaCreate
+from . import repo
 
 
 def main():
@@ -36,7 +36,10 @@ def main():
                 tareas = [t for t in tareas if t.completada]
             if args.sort == "date":
                 print("Sorting by date...")
-                tareas.sort(key=lambda x: datetime.datetime.strptime(x.fecha, "%Y-%m-%d"), reverse=args.reverse)
+                tareas.sort(
+                    key=lambda x: datetime.datetime.strptime(x.fecha, "%Y-%m-%d"),
+                    reverse=args.reverse,
+                )
             elif args.sort == "priority":
                 print("Sorting by priority...")
                 tareas.sort(key=lambda x: x.prioridad, reverse=args.reverse)
@@ -53,7 +56,9 @@ def main():
                 tareas = repo.find_tasks(args.string)
                 if args.sort == "date":
                     print("Sorting by date...")
-                    tareas.sort(key=lambda x: datetime.datetime.strptime(x.fecha, "%Y-%m-%d"))
+                    tareas.sort(
+                        key=lambda x: datetime.datetime.strptime(x.fecha, "%Y-%m-%d")
+                    )
                 elif args.sort == "priority":
                     print("Sorting by priority...")
                     tareas.sort(key=lambda x: x.prioridad)
@@ -61,7 +66,8 @@ def main():
                     print("Sorting by title...")
                     tareas.sort(key=lambda x: x.titulo)
 
-                if(not tareas): print("No tasks found.")
+                if not tareas:
+                    print("No tasks found.")
                 for tarea in tareas:
                     print(tarea.to_json())
             else:
@@ -70,15 +76,19 @@ def main():
         case "complete":
             if args.id:
                 tarea = repo.complete_task(args.id)
-                if(not tarea): print(f"Task {args.id} does not exist.")
-                else: print(f"Task {args.id} marked as completed.")
+                if not tarea:
+                    print(f"Task {args.id} does not exist.")
+                else:
+                    print(f"Task {args.id} marked as completed.")
             else:
                 print("Please provide a task ID to complete.")
         case "delete":
             if args.id:
                 tarea = repo.delete_task(args.id)
-                if(not tarea): print(f"Task {args.id} does not exist.")
-                else: print(f"Task {args.id} deleted successfully.")
+                if not tarea:
+                    print(f"Task {args.id} does not exist.")
+                else:
+                    print(f"Task {args.id} deleted successfully.")
             else:
                 print("Please provide a task ID to complete.")
         case "save":
