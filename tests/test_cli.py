@@ -25,11 +25,11 @@ def test_cli_add_and_ls(capsys):
     assert "Task added successfully." in out
 
     out = capture_run(["ls"], capsys)
+
     # should print JSON per task
     lines = [ln for ln in out.splitlines() if ln.strip().startswith("{")]
-    print(lines)
     assert len(lines) == 1
-    d = json.loads(lines[0])
+    d = json.loads(out)
     assert d["titulo"] == "Task One"
     assert d["prioridad"] == 5
     assert d["fecha"] == "2025-09-09"
