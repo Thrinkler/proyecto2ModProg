@@ -61,6 +61,7 @@ def main():
                     print("Sorting by title...")
                     tareas.sort(key=lambda x: x.titulo)
 
+                if(not tareas): print("No tasks found.")
                 for tarea in tareas:
                     print(tarea.to_json())
             else:
@@ -76,7 +77,6 @@ def main():
         case "delete":
             if args.id:
                 tarea = repo.delete_task(args.id)
-
                 if(not tarea): print(f"Task {args.id} does not exist.")
                 else: print(f"Task {args.id} deleted successfully.")
             else:
