@@ -1,7 +1,7 @@
 import datetime
 from . import cli
 from .tarea import Tarea, TareaCreate
-from . import repo
+import app.repo as repo
 
 
 def main():
