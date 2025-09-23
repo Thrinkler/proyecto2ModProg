@@ -13,7 +13,7 @@ def isolate_json_store(tmp_path, monkeypatch):
     io_json._ensure_store()
     # Reload modules that read io_json on import-time if needed
     importlib.reload(io_json)
-    importlib.reload(__import__("repo"))
+    importlib.reload(__import__("app.repo"))
     yield
 
 @pytest.fixture

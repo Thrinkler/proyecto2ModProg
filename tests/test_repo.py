@@ -1,4 +1,6 @@
+from app.tarea import Tarea, TareaCreate
 import app.repo as repo
+
 
 
 def test_add_and_get(add_task):

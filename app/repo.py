@@ -1,6 +1,6 @@
 from typing import Optional
-from tarea import Tarea, TareaCreate
-import io_json
+from .tarea import Tarea, TareaCreate
+from . import io_json
 
 
 def get_task(task_id: int) -> Optional[Tarea]:
