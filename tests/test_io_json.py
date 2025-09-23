@@ -1,9 +1,10 @@
 import json
-import app.io_json as io_json
 from pathlib import Path
 
 
 def test_insert_and_list_and_get(tmp_path):
+    import app.io_json as io_json
+
     # storage has been redirected via conftest autouse fixture
     rec1 = io_json.insert_task_dict(
         {
@@ -35,6 +36,8 @@ def test_insert_and_list_and_get(tmp_path):
 
 
 def test_delete_and_missing():
+    import app.io_json as io_json
+
     rec = io_json.insert_task_dict(
         {
             "titulo": "A",
@@ -51,6 +54,8 @@ def test_delete_and_missing():
 
 
 def test_load_handles_bad_json(tmp_path, monkeypatch):
+    import app.io_json as io_json
+
     # Point to a specific file and write bad JSON, then ensure load resets store and writes .bak
     monkeypatch.setattr(io_json, "FILE", tmp_path / "tarea.json", raising=True)
     io_json.FILE.write_text("{bad json", encoding="utf-8")
