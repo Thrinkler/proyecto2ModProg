@@ -8,7 +8,7 @@ import pytest
 
 def run_main(argv):
     # late import to ensure fixtures patched modules before loading main
-    import main
+    import app.main as main
     old = sys.argv[:]
     sys.argv = ["tikitiki"] + argv
     try:
@@ -27,6 +27,7 @@ def test_cli_add_and_ls(capsys):
     out = capture_run(["ls"], capsys)
     # should print JSON per task
     lines = [ln for ln in out.splitlines() if ln.strip().startswith("{")]
+    print(lines)
     assert len(lines) == 1
     d = json.loads(lines[0])
     assert d["titulo"] == "Task One"
@@ -62,7 +63,7 @@ def test_cli_complete_and_filters(capsys):
 def test_cli_parser_rejects_bad_date():
     # Test the argparse type directly via cli.date_yyyy_mm_dd
     import argparse
-    from cli import date_yyyy_mm_dd
+    from app.cli import date_yyyy_mm_dd
     with pytest.raises(argparse.ArgumentTypeError):
         date_yyyy_mm_dd("2025/01/01")
 
