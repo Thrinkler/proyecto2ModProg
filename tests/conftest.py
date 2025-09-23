@@ -1,20 +1,27 @@
 import importlib
 import pytest
 
+
 @pytest.fixture(autouse=True)
 def isolate_json_store(tmp_path, monkeypatch):
     """
-    Redirect io_json.FILE to a temp file for every test so tests are hermetic.
+    Redirect io_json.FILE to a temp file and clear any in-memory cache.
     """
     import app.io_json as io_json
-    # point storage to a temporary JSON file
+
+    # --- THIS IS THE CRUCIAL NEW STEP ---
+    # Manually reset the module's in-memory cache before each test.
+    # NOTE: You must find the actual name of the variable in your
+    # app/io_json.py that holds the data. It might be _DATA, _cache, _tasks, etc.
+    if hasattr(io_json, "_DATA"):  # A safe way to check
+        monkeypatch.setattr(io_json, "_DATA", {})
+
+    # This part you already have is correct
     monkeypatch.setattr(io_json, "FILE", tmp_path / "tarea.json", raising=True)
-    # ensure file exists and is empty JSON object
     io_json._ensure_store()
-    # Reload modules that read io_json on import-time if needed
-    importlib.reload(io_json)
-    importlib.reload(__import__("app.repo"))
-    yield
+
+    yield  # The test runs here
+
 
 @pytest.fixture
 def add_task():
