@@ -1,7 +1,7 @@
 import pytest
 from datetime import date
 
-from tarea import Tarea, TareaCreate
+from app.tarea import Tarea, TareaCreate
 
 def test_tarea_create_validates_and_normalizes():
     tc = TareaCreate(

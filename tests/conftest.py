@@ -6,7 +6,7 @@ def isolate_json_store(tmp_path, monkeypatch):
     """
     Redirect io_json.FILE to a temp file for every test so tests are hermetic.
     """
-    import io_json
+    import app.io_json as io_json
     # point storage to a temporary JSON file
     monkeypatch.setattr(io_json, "FILE", tmp_path / "tarea.json", raising=True)
     # ensure file exists and is empty JSON object
@@ -19,8 +19,8 @@ def isolate_json_store(tmp_path, monkeypatch):
 @pytest.fixture
 def add_task():
     """Helper to quickly insert tasks through the public repo API."""
-    import repo
-    from tarea import TareaCreate
+    import app.repo as repo
+    from app.tarea import TareaCreate
 
     def _add(
         titulo="Task",
