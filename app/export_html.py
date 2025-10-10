@@ -22,3 +22,6 @@ html_completo = f"""
 </body>
 </html>
 """
+
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html_completo)
