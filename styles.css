@@ -1,0 +1,27 @@
+/* Estilos generales para el cuerpo de la página */
+body {
+    background-color: #e0f7de; /* Un fondo legible [cite: 22] */
+    font-family: Arial, sans-serif; /* Una tipografía clara [cite: 22] */
+    margin: 40px;
+}
+
+/* Estilos para la lista de tareas */
+table {
+    padding: 60;
+}
+
+
+tr {
+    padding: 15px; 
+    margin-bottom: 10px;
+    background-color: #0eff7b;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+}
+
+/* Estilo para diferenciar las tareas completadas [cite: 24] */
+tr.completada {
+    background-color: #a0c7a9; /* Un fondo verde claro */
+    text-decoration: line-through; /* Tacha el texto */
+    color: #888;
+}
