@@ -3,34 +3,144 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Agenda TikiTiki</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Link to the Bulma CSS framework via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
 </head>
 <body>
-    <h1>La Agenda TikiTiki</h1>
-    <table>
-        <tr>
-    <th>ID</th>
-    <th>Titulo</th>
-    <th>Prioridad</th>
-    <th>Fecha</th>
-    <th>Descripción</th>
-    <th>Tags</th>
-    <th>Completada</th>
-  </tr><tr class="">    <td>1</td>    <td>Task One</td>    <td>5</td>    <td>2025-09-09</td>    <td>desc</td>    <td>work, urgent</td>    <td></td>    </tr>
-<tr class="completada">    <td>2</td>    <td>A</td>    <td>2</td>    <td>2025-01-01</td>    <td>x</td>    <td></td>    <td>X</td>    </tr>
-<tr class="">    <td>3</td>    <td>B</td>    <td>4</td>    <td>2025-01-02</td>    <td>bbb</td>    <td></td>    <td></td>    </tr>
-<tr class="">    <td>4</td>    <td>C</td>    <td>1</td>    <td>2025-01-03</td>    <td>ccc</td>    <td></td>    <td></td>    </tr>
-<tr class="">    <td>5</td>    <td>hola</td>    <td>3</td>    <td>2025-09-09</td>    <td></td>    <td></td>    <td></td>    </tr>
-<tr class="">    <td>6</td>    <td>Alpha</td>    <td>3</td>    <td>2025-01-01</td>    <td></td>    <td></td>    <td></td>    </tr>
-<tr class="">    <td>11</td>    <td>B</td>    <td>4</td>    <td>2025-01-02</td>    <td></td>    <td>x</td>    <td></td>    </tr>
-<tr class="">    <td>12</td>    <td>A</td>    <td>3</td>    <td>2025-01-01</td>    <td></td>    <td></td>    <td></td>    </tr>
-<tr class="">    <td>13</td>    <td>B</td>    <td>4</td>    <td>2025-01-02</td>    <td></td>    <td>x</td>    <td></td>    </tr>
-<tr class="">    <td>14</td>    <td>Alpha</td>    <td>3</td>    <td>2025-01-01</td>    <td></td>    <td></td>    <td></td>    </tr>
-<tr class="completada">    <td>15</td>    <td>Go</td>    <td>4</td>    <td>2025-02-02</td>    <td></td>    <td></td>    <td>X</td>    </tr>
-<tr class="">    <td>16</td>    <td>Do groceries</td>    <td>3</td>    <td>2025-01-01</td>    <td>milk and eggs</td>    <td></td>    <td></td>    </tr>
-<tr class="">    <td>17</td>    <td>Email</td>    <td>3</td>    <td>2025-01-01</td>    <td>follow up</td>    <td></td>    <td></td>    </tr>
 
-    </table>
+    <section class="section">
+        <div class="container">
+
+        
+            <h1 class="title">La Agenda TikiTiki</h1>
+
+            <div class="table-container">
+                <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Titulo</th>
+                            <th>Prioridad</th>
+                            <th>Fecha</th>
+                            <th>Descripción</th>
+                            <th>Tags</th>
+                            <th>Completada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="">
+        <td>1</td>
+        <td>Task One</td>
+        <td>5</td>
+        <td>2025-09-09</td>
+        <td>desc</td>
+        <td>work, urgent</td>
+        <td>No</td>
+        </tr><tr class="is-success">
+        <td>2</td>
+        <td>A</td>
+        <td>2</td>
+        <td>2025-01-01</td>
+        <td>x</td>
+        <td>N/A</td>
+        <td>Sí</td>
+        </tr><tr class="">
+        <td>3</td>
+        <td>B</td>
+        <td>4</td>
+        <td>2025-01-02</td>
+        <td>bbb</td>
+        <td>N/A</td>
+        <td>No</td>
+        </tr><tr class="">
+        <td>4</td>
+        <td>C</td>
+        <td>1</td>
+        <td>2025-01-03</td>
+        <td>ccc</td>
+        <td>N/A</td>
+        <td>No</td>
+        </tr><tr class="">
+        <td>5</td>
+        <td>hola</td>
+        <td>3</td>
+        <td>2025-09-09</td>
+        <td></td>
+        <td>N/A</td>
+        <td>No</td>
+        </tr><tr class="">
+        <td>6</td>
+        <td>Alpha</td>
+        <td>3</td>
+        <td>2025-01-01</td>
+        <td></td>
+        <td>N/A</td>
+        <td>No</td>
+        </tr><tr class="">
+        <td>11</td>
+        <td>B</td>
+        <td>4</td>
+        <td>2025-01-02</td>
+        <td></td>
+        <td>x</td>
+        <td>No</td>
+        </tr><tr class="">
+        <td>12</td>
+        <td>A</td>
+        <td>3</td>
+        <td>2025-01-01</td>
+        <td></td>
+        <td>N/A</td>
+        <td>No</td>
+        </tr><tr class="">
+        <td>13</td>
+        <td>B</td>
+        <td>4</td>
+        <td>2025-01-02</td>
+        <td></td>
+        <td>x</td>
+        <td>No</td>
+        </tr><tr class="">
+        <td>14</td>
+        <td>Alpha</td>
+        <td>3</td>
+        <td>2025-01-01</td>
+        <td></td>
+        <td>N/A</td>
+        <td>No</td>
+        </tr><tr class="is-success">
+        <td>15</td>
+        <td>Go</td>
+        <td>4</td>
+        <td>2025-02-02</td>
+        <td></td>
+        <td>N/A</td>
+        <td>Sí</td>
+        </tr><tr class="">
+        <td>16</td>
+        <td>Do groceries</td>
+        <td>3</td>
+        <td>2025-01-01</td>
+        <td>milk and eggs</td>
+        <td>N/A</td>
+        <td>No</td>
+        </tr><tr class="">
+        <td>17</td>
+        <td>Email</td>
+        <td>3</td>
+        <td>2025-01-01</td>
+        <td>follow up</td>
+        <td>N/A</td>
+        <td>No</td>
+        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
 </body>
 </html>
