@@ -7,6 +7,10 @@ the main folder:
 
     python3 -m app.main [-h] {add,ls,find,complete,delete,save}
 
+To export the html file:
+
+    python3 -m app.export_html
+
 Functions:
 
     add                 Add a new task
